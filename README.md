@@ -29,6 +29,7 @@ $ cd target/Postman2Jmx
 - Then execute the following command to convert your postman json collection file to the jmx file.
 ```sh
 $ java -jar my_postman_collection.json my_jmx_file.jmx
+```
 
 ### Usage for Performance Test CI (06/12/2019)
 
@@ -38,4 +39,4 @@ $ java -jar my_postman_collection.json my_jmx_file.jmx
 - Then execute the following command to convert your postman json collection file to the jmx file
 ```sh
 $ sh fromPostmanToJmxFile.sh postman_collection.json
-
+```
