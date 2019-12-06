@@ -4,7 +4,7 @@ cd ita-selfcare-bb-automation_API
 git checkout develop
 git pull
 cd ..
-java -jar Postman2Jmx.jar $1 jmxVersion01.jmx
+java -jar Postman2Jmx.jar ita-selfcare-bb-automation_API/$1 jmxVersion01.jmx
 sed 's/{{tokenId}}/foobar/g; 
 s/{{e2eContractId_7804492}}/MXoyb3g1SDl1N2hzOWduV2JQUTA0UT09/g;
 s/{{e2eContractId_7804492_S831016}}/S000SVI4ZklBbHZOekxpdWliWWVrdz09/g;
