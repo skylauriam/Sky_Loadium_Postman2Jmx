@@ -41,5 +41,5 @@ $ git clone https://github.com/sky-uk/ita-selfcare-bb-automation_API
 ```
 - Then execute the following command to convert your postman json collection file to the jmx file
 ```sh
-$ sh fromPostmanToJmxFile.sh postman_collection.json
+$ sh fromPostmanToJmxFile.sh postman_collection.json input_data_file.json name_environment
 ```
