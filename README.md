@@ -35,6 +35,7 @@ $ java -jar my_postman_collection.json my_jmx_file.jmx
 
 - After build step, go to "target/Postman2Jmx"
 - copy and paste the "fromPostmanToJmxFile.sh" script (you can find it on the root repository path)
+- copy and paste the "fromPostmanJsonInputDataToSedCmd.jar" file (you can find it on the root repository path)
 - Clone the "ita-selfcare-bb-automation_API" project in this folder
 ```sh
 $ git clone https://github.com/sky-uk/ita-selfcare-bb-automation_API
