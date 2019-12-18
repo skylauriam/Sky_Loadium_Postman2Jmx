@@ -74,9 +74,13 @@ public class JmxHTTPSamplerProxy {
 
 
         for (PostmanQuery query : postmanItem.getRequest().getUrl().getQueries()) {
+            String queryValue=query.getValue();
             argument = new HTTPArgument();
             argument.setName(query.getKey());
-            argument.setValue(query.getValue());
+            if(query.getValue().contains("{{") && query.getValue().contains("}}")){
+            	queryValue=query.getValue().replace("{{","${").replace("}}","}");
+            }
+            argument.setValue(queryValue);
             argument.setDescription(query.getKey());
             argument.setEnabled(true);
             argument.setMetaData("=");

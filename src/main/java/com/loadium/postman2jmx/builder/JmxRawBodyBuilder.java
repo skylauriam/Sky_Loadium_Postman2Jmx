@@ -21,10 +21,14 @@ public class JmxRawBodyBuilder extends AbstractJmxBodyBuilder {
 
             if (raw.getValue() != null && !raw.getValue().isEmpty()) {
                 HTTPArgument argument = new HTTPArgument();
+                String body=raw.getValue();
                 argument.setEnabled(true);
                 argument.setAlwaysEncoded(false);
                 argument.setMetaData("=");
-                argument.setValue(raw.getValue());
+                if(raw.getValue().contains("{{") && raw.getValue().contains("}}")){
+                	body=raw.getValue().replace("{{","${").replace("}}","}");
+                }
+                argument.setValue(body);
                 arguments.addArgument(argument);
             }
             httpSamplerProxy.setArguments(arguments);

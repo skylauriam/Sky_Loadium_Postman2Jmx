@@ -55,6 +55,12 @@ public class UrlUtils {
     }
 
     public static String getVariablePath(String url) {
-        return url.substring(url.lastIndexOf("}") + 1);
+        if (url.contains("/")) {
+            return url.substring(url.indexOf("/"),url.length());
+        } else if (url.contains("}")) {
+            return url.substring(url.indexOf("}"),url.length());
+        }
+        return url;
+        //return url.substring(url.lastIndexOf("}") + 1);
     }
 }

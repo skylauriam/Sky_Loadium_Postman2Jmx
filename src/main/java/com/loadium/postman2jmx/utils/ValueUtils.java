@@ -20,8 +20,9 @@ public class ValueUtils {
 
     public static List<String> extractVariables(List<String> execs) {
         List<String> variables = new ArrayList<>();
-
+    
         for (String exec : execs) {
+            //NEWMAN RESPONSE
             if (exec.contains(patterns[0]) || exec.contains(patterns[1]) || exec.contains(patterns[2]) || exec.contains(patterns[3])) {
                 String variable = exec.substring(exec.indexOf("(") + 1, exec.indexOf(","));
                 variable = variable.trim().replace("\'", "").replace("\"", "");
