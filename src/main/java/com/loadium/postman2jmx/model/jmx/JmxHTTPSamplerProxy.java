@@ -15,15 +15,49 @@ import java.net.URL;
 public class JmxHTTPSamplerProxy {
     public static HTTPSamplerProxy newInstance(PostmanItem postmanItem) {
         HTTPSamplerProxy httpSamplerProxy = new HTTPSamplerProxy();
+        ArrayList<String> errorStatusCode = new ArrayList<String>();
+        boolean error = false;
+        errorStatusCode.add("422");
+        errorStatusCode.add("406");
+        errorStatusCode.add("412");
+        errorStatusCode.add("400");
+        errorStatusCode.add("403");
+        errorStatusCode.add("404");
+        errorStatusCode.add("401");
+        errorStatusCode.add("402");
+        errorStatusCode.add("405");
+        errorStatusCode.add("407");
+        errorStatusCode.add("408");
+        errorStatusCode.add("409");
+        errorStatusCode.add("410");
+        errorStatusCode.add("411");
+        errorStatusCode.add("413");
+        errorStatusCode.add("414");
+        errorStatusCode.add("415");
+        errorStatusCode.add("416");
+        errorStatusCode.add("417");
+        errorStatusCode.add("418");
+        errorStatusCode.add("420");
+        errorStatusCode.add("426");
+        errorStatusCode.add("429");
+        errorStatusCode.add("449");
+        errorStatusCode.add("451");
+        errorStatusCode.add("failure");
         httpSamplerProxy.setProperty(TestElement.TEST_CLASS, HTTPSamplerProxy.class.getName());
         httpSamplerProxy.setProperty(TestElement.GUI_CLASS, HttpTestSampleGui.class.getName());
         httpSamplerProxy.setName(postmanItem.getName());
         String name = postmanItem.getName();
-        if(name.contains("422") || name.contains("400") || name.contains("403") || name.contains("404") || name.contains("failure")){
-            httpSamplerProxy.setEnabled(false);
-        }else{
-            httpSamplerProxy.setEnabled(true);
+        for (String item : errorStatusCode) {
+			if(name.contains(item)) {
+				error = true;
+			}
+		}
+        if(error) {
+        	httpSamplerProxy.setEnabled(false);
+        }else {
+        	httpSamplerProxy.setEnabled(true);
         }
+        error=false;
         httpSamplerProxy.setAutoRedirects(false);
         httpSamplerProxy.setFollowRedirects(true);
         httpSamplerProxy.setUseKeepAlive(true);
